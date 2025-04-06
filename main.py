@@ -36,6 +36,12 @@ class NextLLAKit():
             self.updateSession()
         return output
 
+    def getSystemPrompt(self):
+        a = self.var["systemPrompt"]
+        for key in self.var.keys:
+            a.replace("{" + key + "}", self.var[key])
+        return a
+
     def getVar(self, id):
         return {"status": "success", "data": self.var[id]}
 
