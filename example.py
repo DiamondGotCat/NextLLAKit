@@ -92,7 +92,7 @@ def main(modelID):
     global kit
     global chatHistory
     current_session_id = kit.getVar("currentSessionID")["data"]
-    response = getOneResponse([{"role": "system", "content": kit.getVar("systemPrompt")["data"]}] + chatHistory, modelID)
+    response = getOneResponse([{"role": "system", "content": kit.getSystemPrompt()}] + chatHistory, modelID)
     result = kit.main_process(response)
     if result["data"]["isContainCommand"] == True:
         for command in result["data"]["containCommands"]:
